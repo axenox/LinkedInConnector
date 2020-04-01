@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="UrlDataConnector"/>
+	<buildpathentry kind="src" path="guzzlehttp"/>
+	<buildpathentry kind="src" path="Core"/>
+	<buildpathentry kind="src" path="dom-crawler"/>
+</buildpath>

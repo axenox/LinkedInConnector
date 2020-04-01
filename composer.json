@@ -1,0 +1,24 @@
+{
+    "name": "axenox/linkedinconnector",
+    "require": {
+        "exface/core": "~0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "\\axenox\\LinkedInConnector\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Config/",
+            "/Translations/",
+            "/Model/"
+        ]
+    },
+    "extra": {
+        "app": {
+            "app_uid": "0x11ea7343ba732eafa3480205857feb80",
+            "app_alias": "axenox.LinkedInConnector",
+            "model_md5": "49ba035975f4f64e5ff668b3c630dc24",
+            "model_timestamp": "2020-04-01 12:25:55"
+        }
+    }
+}
