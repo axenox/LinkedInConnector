@@ -26,7 +26,7 @@ class LinkedInVoyagerApiConnector extends HttpConnector
      * {@inheritDoc}
      * @see \exface\UrlDataConnector\DataConnectors\HttpConnector::performQuery()
      */
-    protected function performQuery(DataQueryInterface $query)
+    protected function performQuery(DataQueryInterface $query, bool $reloginOn403 = true)
     {
         $request = $query->getRequest();
         $request = $request->withHeader('csrf-token', $this->getCsrfToken());
@@ -48,10 +48,10 @@ class LinkedInVoyagerApiConnector extends HttpConnector
             // do nothing, $er is there explicitly
         }
         
-        if ($er && $er->getResponse() && $er->getResponse()->getStatusCode() == 403) {
+        if ($reloginOn403 === true && $er && $er->getResponse() && $er->getResponse()->getStatusCode() == 403) {
             try {
                 $this->loginToLinkedIn();
-                return $this->performQuery($query);
+                return $this->performQuery($query, false);
             } catch (\Throwable $el) {
                 // continue with default logic below
             }
