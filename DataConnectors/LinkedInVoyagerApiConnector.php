@@ -16,6 +16,8 @@ use axenox\LinkedInConnector\DataConnectors\Authentication\LinkedInVoyagerApiAut
 use exface\Core\CommonLogic\Security\AuthenticationToken\UsernamePasswordAuthToken;
 use exface\Core\CommonLogic\UxonObject;
 use GuzzleHttp\Exception\ClientException;
+use exface\Core\Interfaces\Security\AuthenticationTokenInterface;
+use exface\Core\Interfaces\UserInterface;
 
 class LinkedInVoyagerApiConnector extends HttpConnector
 {
@@ -136,6 +138,13 @@ class LinkedInVoyagerApiConnector extends HttpConnector
         $this->getWorkbench()->getApp('axenox.LinkedInConnector')->setContextVariable($this->getCsrfTokenContextVarName(), $value, ContextManagerInterface::CONTEXT_SCOPE_SESSION);
         return $this;
     }
+
+    public function authenticate(AuthenticationTokenInterface $token, bool $updateUserCredentials = true, UserInterface $credentialsOwner = null) : AuthenticationTokenInterface
+    {
+        $token = parent::authenticate($token, $updateUserCredentials, $credentialsOwner);
+        $this->setCsrfToken($token->getCsrfToken());
+        return $token;
+    }
     
     protected function loginToLinkedIn() : LinkedInVoyagerApiAuthToken
     {
@@ -144,6 +153,7 @@ class LinkedInVoyagerApiConnector extends HttpConnector
             throw new AuthenticationFailedError($this, 'Please provide an email address and a password to log in to LinkedIn');
         }
         $this->resetCookies();
+        $this->setCsrfToken('');
         return $provider->authenticate(new UsernamePasswordAuthToken($provider->getUser(), $provider->getPassword()));
     }
     
