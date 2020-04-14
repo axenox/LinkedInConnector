@@ -67,14 +67,14 @@
         },
         {
             "CREATED_ON": "2020-03-31 17:26:25",
-            "MODIFIED_ON": "2020-04-01 15:24:29",
+            "MODIFIED_ON": "2020-04-03 15:03:39",
             "CREATED_BY_USER": "0x31000000000000000000000000000000",
             "MODIFIED_BY_USER": "0x31000000000000000000000000000000",
             "UID": "0x11ea7374bd7b667da3480205857feb80",
             "APP": "0x11ea7343ba732eafa3480205857feb80",
             "LABEL": "LinkedIn Voyager API",
             "CONNECTOR": "axenox\/linkedinconnector\/DataConnectors\/LinkedInVoyagerApiConnector.php",
-            "CONFIG": null,
+            "CONFIG": "{\"cache_enabled\":true,\"cache_lifetime_in_seconds\":7200}",
             "READONLY": "0",
             "ALIAS": "LINKEDIN_VOYAGER_API",
             "FILTER_CONTEXT": null

@@ -1,24 +1,24 @@
 {
-	"name" : "axenox/linkedinconnector",
-	"require" : {
-		"exface/core" : "^1.0"
-	},
-	"autoload" : {
-		"psr-4" : {
-			"\\axenox\\LinkedInConnector\\" : ""
-		},
-		"exclude-from-classmap" : [
-			"/Config/",
-			"/Translations/",
-			"/Model/"
-		]
-	},
-	"extra" : {
-		"app" : {
-			"app_uid" : "0x11ea7343ba732eafa3480205857feb80",
-			"app_alias" : "axenox.LinkedInConnector",
-			"model_md5" : "ef3306daa1dd944861e020e3bbc8c910",
-			"model_timestamp" : "2020-04-01 15:24:29"
-		}
-	}
+    "name": "axenox/linkedinconnector",
+    "require": {
+        "exface/core": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "\\axenox\\LinkedInConnector\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Config/",
+            "/Translations/",
+            "/Model/"
+        ]
+    },
+    "extra": {
+        "app": {
+            "app_uid": "0x11ea7343ba732eafa3480205857feb80",
+            "app_alias": "axenox.LinkedInConnector",
+            "model_md5": "b9c42fd37eed50471db0ec194607d3dc",
+            "model_timestamp": "2020-04-06 12:20:12"
+        }
+    }
 }
