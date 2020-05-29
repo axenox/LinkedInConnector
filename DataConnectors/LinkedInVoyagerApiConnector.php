@@ -18,6 +18,7 @@ use exface\Core\CommonLogic\UxonObject;
 use GuzzleHttp\Exception\ClientException;
 use exface\Core\Interfaces\Security\AuthenticationTokenInterface;
 use exface\Core\Interfaces\UserInterface;
+use exface\UrlDataConnector\Exceptions\HttpConnectorRequestError;
 
 class LinkedInVoyagerApiConnector extends HttpConnector
 {
@@ -38,10 +39,10 @@ class LinkedInVoyagerApiConnector extends HttpConnector
         $query->setRequest($request);
         try {
             return parent::performQuery($query);
-        } catch (DataQueryFailedError|AuthenticationFailedError $e) {
+        } catch (HttpConnectorRequestError|DataQueryFailedError|AuthenticationFailedError $e) {
             $prev = $e->getPrevious();
             do {
-                if ($prev instanceof ClientException) {
+                if ($prev instanceof ClientException || $prev instanceof RequestException) {
                     $er = $prev;
                     break;
                 }
@@ -50,12 +51,18 @@ class LinkedInVoyagerApiConnector extends HttpConnector
             // do nothing, $er is there explicitly
         }
         
-        if ($reloginOn403 === true && $er && $er->getResponse() && $er->getResponse()->getStatusCode() == 403) {
+        if ($reloginOn403 === true && $er && $er->getResponse() && ($er->getResponse()->getStatusCode() == 403 || $er->getResponse()->getStatusCode() == 999)) {
             try {
                 $this->loginToLinkedIn();
                 return $this->performQuery($query, false);
+            } catch (AuthenticationFailedError $el) {
+                throw $el;   
             } catch (\Throwable $el) {
-                // continue with default logic below
+                if ($er->getResponse()->getStatusCode() !== 403) {
+                    throw new AuthenticationFailedError($this, $er->getMessage());
+                } else {
+                    // continue with default logic below
+                }
             }
         }
         throw ($e ?? $er ?? $el);
@@ -146,14 +153,22 @@ class LinkedInVoyagerApiConnector extends HttpConnector
         return $token;
     }
     
+    /**
+     * 
+     * @throws AuthenticationFailedError
+     * @return LinkedInVoyagerApiAuthToken
+     */
     protected function loginToLinkedIn() : LinkedInVoyagerApiAuthToken
     {
         $provider = $this->getAuthProvider();
+        
+        $this->resetCookies();
+        $this->setCsrfToken('');
+        
         if (! $provider->getUser() || ! $provider->getPassword()) {
             throw new AuthenticationFailedError($this, 'Please provide an email address and a password to log in to LinkedIn');
         }
-        $this->resetCookies();
-        $this->setCsrfToken('');
+        
         return $provider->authenticate(new UsernamePasswordAuthToken($provider->getUser(), $provider->getPassword()));
     }
     
