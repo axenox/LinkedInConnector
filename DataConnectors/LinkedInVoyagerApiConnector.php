@@ -114,7 +114,7 @@ class LinkedInVoyagerApiConnector extends HttpConnector
     protected function getCsrfToken() : string
     {
         if ($this->csrfToken === null) {
-            if ($token = $this->getWorkbench()->getApp('axenox.LinkedInConnector')->getContextVariable($this->getCsrfTokenContextVarName())) {
+            if ($token = $this->getWorkbench()->getApp('axenox.LinkedInConnector')->getContextVariable($this->getCsrfTokenContextVarName(), ContextManagerInterface::CONTEXT_SCOPE_USER)) {
                 $this->csrfToken = $token;
             } elseif ($token = $this->loginToLinkedIn()->getCsrfToken()) {
                 $this->setCsrfToken($token);
@@ -142,7 +142,7 @@ class LinkedInVoyagerApiConnector extends HttpConnector
     protected function setCsrfToken(string $value) : HttpConnectionInterface
     {
         $this->csrfToken = $value;
-        $this->getWorkbench()->getApp('axenox.LinkedInConnector')->setContextVariable($this->getCsrfTokenContextVarName(), $value, ContextManagerInterface::CONTEXT_SCOPE_SESSION);
+        $this->getWorkbench()->getApp('axenox.LinkedInConnector')->setContextVariable($this->getCsrfTokenContextVarName(), $value, ContextManagerInterface::CONTEXT_SCOPE_USER);
         return $this;
     }
 
