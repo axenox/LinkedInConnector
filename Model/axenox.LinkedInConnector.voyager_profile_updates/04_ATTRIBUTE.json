@@ -384,7 +384,7 @@
         },
         {
             "CREATED_ON": "2020-04-01 09:19:31",
-            "MODIFIED_ON": "2020-04-01 09:46:06",
+            "MODIFIED_ON": "2020-04-14 14:40:51",
             "CREATED_BY_USER": "0x31000000000000000000000000000000",
             "MODIFIED_BY_USER": "0x31000000000000000000000000000000",
             "UID": "0x11ea73f9e363b4fda3480205857feb80",
@@ -408,7 +408,7 @@
             "DATATYPE": "0x30000000000000000000000000000000",
             "DATA_ADDRESS": "",
             "OBJECT": "0x11ea7385e18e91a3a3480205857feb80",
-            "FORMATTER": "=LEFT(commentary_text, 50)",
+            "FORMATTER": "=LEFT(commentary_text, 80)",
             "DISPLAYORDER": null,
             "LABELFLAG": "1",
             "UIDFLAG": "0",
