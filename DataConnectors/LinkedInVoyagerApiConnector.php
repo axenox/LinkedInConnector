@@ -146,9 +146,9 @@ class LinkedInVoyagerApiConnector extends HttpConnector
         return $this;
     }
 
-    public function authenticate(AuthenticationTokenInterface $token, bool $updateUserCredentials = true, UserInterface $credentialsOwner = null) : AuthenticationTokenInterface
+    public function authenticate(AuthenticationTokenInterface $token, bool $updateUserCredentials = true, UserInterface $credentialsOwner = null, bool $credentialsArePrivate = null) : AuthenticationTokenInterface
     {
-        $token = parent::authenticate($token, $updateUserCredentials, $credentialsOwner);
+        $token = parent::authenticate($token, $updateUserCredentials, $credentialsOwner, $credentialsArePrivate);
         $this->setCsrfToken($token->getCsrfToken());
         return $token;
     }
