@@ -509,7 +509,14 @@
             "DATA_ADDRESS_PROPS": null,
             "DEFAULT_VALUE": "",
             "FIXED_VALUE": "",
-            "CUSTOM_DATA_TYPE": "{\"show_values\":false,\"values\":{\"memberFeed\":\"All\",\"memberShareFeed\":\"Posts\",\"documentUpdateType\":\"Documents\"}}"
+            "CUSTOM_DATA_TYPE": {
+                "show_values": false,
+                "values": {
+                    "memberFeed": "All",
+                    "memberShareFeed": "Posts",
+                    "documentUpdateType": "Documents"
+                }
+            }
         },
         {
             "CREATED_ON": "2020-04-01 09:45:40",

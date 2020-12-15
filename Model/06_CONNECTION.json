@@ -60,7 +60,15 @@
             "APP": "0x11ea7343ba732eafa3480205857feb80",
             "LABEL": "LinkedIn API v2",
             "CONNECTOR": "exface\/UrlDataConnector\/DataConnectors\/HttpConnector.php",
-            "CONFIG": "{\"url\":\"https:\\\/\\\/api.linkedin.com\\\/v2\",\"authentication\":{\"class\":\"\\\\exface\\\\UrlDataConnector\\\\DataConnectors\\\\Authentication\\\\OAuth2\",\"client_id\":\"77ce7aoaonvr9h\",\"client_secret\":\"MdWWNzGmYWDepNc1\",\"authorization_page_url\":\"https:\\\/\\\/www.linkedin.com\\\/oauth\\\/v2\\\/authorization\"}}",
+            "CONFIG": {
+                "url": "https:\/\/api.linkedin.com\/v2",
+                "authentication": {
+                    "class": "\\exface\\UrlDataConnector\\DataConnectors\\Authentication\\OAuth2",
+                    "client_id": "77ce7aoaonvr9h",
+                    "client_secret": "MdWWNzGmYWDepNc1",
+                    "authorization_page_url": "https:\/\/www.linkedin.com\/oauth\/v2\/authorization"
+                }
+            },
             "READONLY": "0",
             "ALIAS": "LINKEDIN_API_V2",
             "FILTER_CONTEXT": null
@@ -74,7 +82,10 @@
             "APP": "0x11ea7343ba732eafa3480205857feb80",
             "LABEL": "LinkedIn Voyager API",
             "CONNECTOR": "axenox\/linkedinconnector\/DataConnectors\/LinkedInVoyagerApiConnector.php",
-            "CONFIG": "{\"cache_enabled\":true,\"cache_lifetime_in_seconds\":7200}",
+            "CONFIG": {
+                "cache_enabled": true,
+                "cache_lifetime_in_seconds": 7200
+            },
             "READONLY": "0",
             "ALIAS": "LINKEDIN_VOYAGER_API",
             "FILTER_CONTEXT": null
