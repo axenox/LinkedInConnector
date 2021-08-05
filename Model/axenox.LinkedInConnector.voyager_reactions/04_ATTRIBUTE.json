@@ -86,6 +86,10 @@
             "attribute_alias": "TYPE"
         },
         {
+            "name": "COPYABLEFLAG",
+            "attribute_alias": "COPYABLEFLAG"
+        },
+        {
             "name": "ALIAS",
             "attribute_alias": "ALIAS"
         },
@@ -189,6 +193,7 @@
             "NAME": "Thread URN",
             "RELATION_CARDINALITY": "",
             "TYPE": "D",
+            "COPYABLEFLAG": "0",
             "ALIAS": "thread_urn",
             "DATATYPE": "0x30000000000000000000000000000000",
             "DATA_ADDRESS": "[#~urlplaceholder:thread_urn#]",
@@ -232,6 +237,7 @@
             "NAME": "Type",
             "RELATION_CARDINALITY": "",
             "TYPE": "D",
+            "COPYABLEFLAG": "0",
             "ALIAS": "reactionType",
             "DATATYPE": "0x30000000000000000000000000000000",
             "DATA_ADDRESS": "reactionType",
@@ -275,6 +281,7 @@
             "NAME": "Name",
             "RELATION_CARDINALITY": "",
             "TYPE": "D",
+            "COPYABLEFLAG": "0",
             "ALIAS": "name",
             "DATATYPE": "0x30000000000000000000000000000000",
             "DATA_ADDRESS": "name\/text",
@@ -318,6 +325,7 @@
             "NAME": "Description",
             "RELATION_CARDINALITY": "",
             "TYPE": "D",
+            "COPYABLEFLAG": "0",
             "ALIAS": "description",
             "DATATYPE": "0x30000000000000000000000000000000",
             "DATA_ADDRESS": "description\/text",
@@ -361,6 +369,7 @@
             "NAME": "Public Identifier",
             "RELATION_CARDINALITY": "",
             "TYPE": "D",
+            "COPYABLEFLAG": "0",
             "ALIAS": "publicIdentifier",
             "DATATYPE": "0x30000000000000000000000000000000",
             "DATA_ADDRESS": "image\/attributes\/0\/miniProfile\/publicIdentifier",
