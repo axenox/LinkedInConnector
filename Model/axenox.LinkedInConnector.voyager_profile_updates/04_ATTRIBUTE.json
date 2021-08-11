@@ -418,7 +418,7 @@
             "DATATYPE": "0x30000000000000000000000000000000",
             "DATA_ADDRESS": "",
             "OBJECT": "0x11ea7385e18e91a3a3480205857feb80",
-            "FORMATTER": "=LEFT(commentary_text, 80)",
+            "FORMATTER": "=Left(commentary_text, 80)",
             "DISPLAYORDER": null,
             "LABELFLAG": "1",
             "UIDFLAG": "0",
