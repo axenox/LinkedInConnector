@@ -30,26 +30,4 @@
 		<nature>org.eclipse.php.core.PHPNature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>Core</name>
-			<type>2</type>
-			<location>C:/wamp/www/exface/exface/vendor/exface/Core</location>
-		</link>
-		<link>
-			<name>UrlDataConnector</name>
-			<type>2</type>
-			<location>C:/wamp/www/exface/exface/vendor/exface/UrlDataConnector</location>
-		</link>
-		<link>
-			<name>dom-crawler</name>
-			<type>2</type>
-			<location>C:/wamp/www/exface/exface/vendor/symfony/dom-crawler</location>
-		</link>
-		<link>
-			<name>guzzlehttp</name>
-			<type>2</type>
-			<location>C:/wamp/www/exface/exface/vendor/guzzlehttp</location>
-		</link>
-	</linkedResources>
 </projectDescription>
